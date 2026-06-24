@@ -16,7 +16,7 @@
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 
 // To get the model 
-#include "imu_model.h"
+#include "sine_model.h"
 char c_str[100];
 int main(void) {
 
@@ -25,7 +25,7 @@ int main(void) {
     init_UART2();
     init_TIM2();
 
-    const tflite::Model* model = tflite::GetModel(imu_model);
+    const tflite::Model* model = tflite::GetModel(sine_model);
     if (model->version() != TFLITE_SCHEMA_VERSION) {
         UART_printf("The model version of %d does not match the version of the schema of version %d", model->version(), TFLITE_SCHEMA_VERSION);
     }
